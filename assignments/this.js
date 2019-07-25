@@ -1,7 +1,7 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1.  window binding -
+* 1.  window binding - the default object the 'this' keyword points too when there are no other rules.
 
 * 2.  Implicit binding - the function is automatically applied to the object it's nested in
 
@@ -30,11 +30,20 @@ const hi ={
     }
 }
 
-hi.tellMe();
+console.log(hi.tellMe());
 
 // Principle 3
 
 // code example for New Binding
+
+
+function Taco(filling){
+    this.alPastor = filling;
+}
+
+let dinner = new Taco('pork');
+
+console.log(dinner.alPastor);
 
 // Principle 4
 
@@ -42,8 +51,7 @@ hi.tellMe();
 
 
 function dog(){
-  console.log(this.sound);
-  return this.sound;
+   return this.sound;
 }
 
 const myDog ={
@@ -51,4 +59,4 @@ const myDog ={
   sound:"Bow wow wow",
 }
 
-dog.call(myDog); ///This is where we invoke the function
+console.log(dog.call(myDog)); 
