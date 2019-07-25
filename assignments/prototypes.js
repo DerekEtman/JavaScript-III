@@ -19,18 +19,16 @@
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
+
 function GameObject(att) {
   this.createdAt = att.createdAt,
     this.name = att.name,
-    this.dimensions ={
-            length: att.length,
-            width: att.width,
-            height: att.height,
-          }
+    this.dimensions =att.dimensions
 }
 /* GAME OBJECT PROTOTYPES */
+
 GameObject.prototype.destroy = function () {
-  return ` ${this.fname} was removed from the game.`
+  return ` ${this.name} was removed from the game.`
 }
 
 
@@ -41,19 +39,20 @@ GameObject.prototype.destroy = function () {
   * should inherit destroy() from GameObject's prototype
 */
 
+
 function CharacterStats(charStats) {
   GameObject.call(this, charStats),
 
   this.healthPoints = charStats.healthPoints
 }
-
 /* CHARACTER STATS PROTOTYPES*/
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 CharacterStats.prototype.takeDamage = function () {
-  `${this.name} took damage.`;
+  return `${this.name} took damage.`;
 }
+
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -86,7 +85,6 @@ Humanoid.prototype.greet = function() {
  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
  * Instances of CharacterStats should have all of the same properties as GameObject.
  */
-GameObject.prototype.CharacterStats 
 
 
 
